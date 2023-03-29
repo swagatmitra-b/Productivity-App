@@ -19,7 +19,6 @@ onload = () => {
     let newArr = myarray.filter((note) => note.title != "" || note.body != "");
     myarray = newArr;
     saveNote(myarray);
-    console.log(myarray);
 
     for (let note of myarray) {
       noteOnLoad(note.title, note.body, note.date);
@@ -94,9 +93,6 @@ function createNote(mytitle = "Title", mybody = "This is the body") {
 
   notes.unshift(newNote);
 
-  console.log(notes);
-  console.log(notes.length);
-
   noteMessage.style.display = "none";
   contentTitle.style.display = "block";
   contentBody.style.display = "block";
@@ -144,12 +140,9 @@ function noteSelect() {
         e.currentTarget.classList.add("selected");
       }
 
-      console.log(note);
       let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
       let noteIndex = notes.indexOf(note);
       let noteObject = myarray[noteIndex];
-
-      console.log(noteObject);
 
       let refreshedNote = content.cloneNode(true);
       let fillTitle = refreshedNote.querySelector("#title");
@@ -165,7 +158,6 @@ function noteSelect() {
       
       content.replaceWith(refreshedNote);
       content = refreshedNote;
-      console.log(refreshedNote);
 
       document.addEventListener("keydown", (e) => {
         if (e.key == "Alt") {
@@ -183,8 +175,6 @@ function noteSelect() {
 
           let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
           let noteObject = myarray[noteIndex];
-
-          console.log(noteObject);
 
           noteObject.title = fillTitle.value.trim();
           noteObject.body = fillBody.value.trim();
@@ -265,9 +255,6 @@ function noteOnLoad(mytitle = "Title", mybody = "This is the body", dateString) 
 
   notes.push(newNote);
 
-  console.log(notes);
-  console.log(notes.length);
-
   noteMessage.style.display = "none";
   contentTitle.style.display = "block";
   contentBody.style.display = "block";
@@ -289,11 +276,9 @@ document.addEventListener("keydown", (e) => {
       "Are you sure you want to delete the selected note?"
     );
     if (response) {
-      console.log(1)
       let deleteNote = notes.filter((note) =>
         note.classList.contains("selected")
       )[0];
-      console.log(deleteNote);
       let noteIndex = notes.findIndex((note) =>
         note.classList.contains("selected")
       );
