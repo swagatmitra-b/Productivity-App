@@ -21,8 +21,6 @@ function buttonClick () {
 
         if (date.length == 1) return; 
         
-        console.log(timeVal)
-        
         function count() {
           let now = new Date();
           let inSeconds = (target - now) / 1000;
