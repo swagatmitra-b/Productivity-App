@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/countdown.css" />
+    <script src="./js/countdown.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <div class="pages">
+          <a href="./notes.html" id="notes">Notes</a>
+          <a href="./countdown.html" id="countdown">Countdown</a>
+          <a href="./stopwatch.html" id="stopwatch">Stopwatch</a>
+        </div>
+      </nav>
+      <div class="timer">
+        <div class="box days">
+          <h2>Days</h2>
+          <span id="days">0</span>
+        </div>
+        <div class="box hours">
+          <h2>Hours</h2>
+          <span id="hours">0</span>
+        </div>
+        <div class="box minutes">
+          <h2>Minutes</h2>
+          <span id="minutes">0</span>
+        </div>
+        <div class="box seconds">
+          <h2>Seconds</h2>
+          <span id="seconds">0</span>
+        </div>
+      </div>
+      <div class="input">
+        <label for="date">
+          <h3>Set Date</h3> 
+          <input type="date" id="date" />
+        </label>
+        <label for="time">
+          <h3>Set Time</h3>
+          <input type="time" id="time" />
+        </label>
+      </div>
+      <button>Begin Countdown</button>
+      <button id="stop">Stop</button>
+    </div>
+  </body>
+</html>

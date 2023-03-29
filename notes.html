@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="/css/notes.css" />
+    <script src="./js/notes.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <div class="pages">
+          <a href="./notes.html" id="notes">Notes</a>
+          <a href="./countdown.html" id="countdown">Countdown</a>
+          <a href="./stopwatch.html" id="stopwatch">Stopwatch</a>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="sidebar">
+          <button id="add-note">New note</button>
+          <div class="display-notes"></div>
+        </div>
+        <div class="content">
+          <h1>Create a new note</h1>
+          <textarea placeholder="Title" maxlength="240" id="title"></textarea>
+          <textarea
+            placeholder="This is the note content"
+            maxlength="1700"
+            id="body"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

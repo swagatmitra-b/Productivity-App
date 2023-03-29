@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    margin: 0; 
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    display: none;
+    position: relative;
+    left: 240px;
+    bottom: 24px;
+    height: 20px
+}
+
+nav {
+    max-width: 100vh;
+    margin: 0 auto;
+}
+
+nav .pages {
+    margin: 30px 165px;
+    display: flex;
+    gap: 40px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+    color: black;
+}
+
+a#notes {
+    border-bottom: 1.9px solid;
+    color: rgb(13, 32, 205);
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 2px solid black;
+    flex-shrink: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px 30px;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    padding: 7px 0;
+    width: 280px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: rgb(67, 84, 236);
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(89, 104, 237);
+    transition: 0.2s ease;
+}
+
+
+.display-notes {
+    padding: 10px 10px;
+}
+
+.note {
+    margin-top: 9px;
+    box-shadow: 0px 1px 3px 0px grey;
+    padding: 3px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.note h3 {
+    font-size: 1.3rem;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.note p {
+    font-size: 0.9rem;
+    max-height: 70px;
+    overflow: hidden;
+
+}
+
+.note h4 {
+    padding-top: 5px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.selected {
+    background-color: rgba(208, 205, 205, 0.76);
+}
+
+.content h1 {
+    position: relative;
+    top: 40%;
+    left: 190%;
+    transform: translate(-50%, -50%);
+}
+
+textarea#title {
+    display: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    width: 1150px;
+}
+
+textarea {
+    resize: none;
+    overflow-y: hidden;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea#body {
+    display: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    transform: translateY(5px);
+    height: 100%;
+    overflow-y: auto;
+    text-align: justify;
+}
