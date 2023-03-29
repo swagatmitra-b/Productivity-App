@@ -271,8 +271,8 @@ document.addEventListener("keydown", (e) => {
         } else {
           content.innerHTML = `<h1>Create a new note</h1>`;
         }
+        location.reload();
       }
-      location.reload();
     }
   }
 });
