@@ -61,7 +61,6 @@ onload = () => {
 };
 
 function createNote(mytitle = "Title", mybody = "This is the body") {
-
   let now = new Date();
   let year = now.getFullYear();
   let date = now.getDate();
@@ -147,14 +146,9 @@ function noteSelect() {
       let fillTitle = refreshedNote.querySelector("#title");
       let fillBody = refreshedNote.querySelector("#body");
 
-      if (noteObject.title != "" || noteObject.body != "") {
-        fillTitle.innerText = noteObject.title;
-        fillBody.innerText = noteObject.body;
-      } else {
-        fillTitle.innerText = "";
-        fillBody.innerText = "";
-      }
-      
+      fillTitle.innerText = noteObject.title;
+      fillBody.innerText = noteObject.body;
+
       content.replaceWith(refreshedNote);
       content = refreshedNote;
 
@@ -181,31 +175,6 @@ function noteSelect() {
           saveNote(myarray);
           location.reload();
         }
-        if (e.key == "Delete") {
-          let response = confirm(
-            "Are you sure you want to delete the selected note?"
-          );
-          if (response) {
-            let deleteNote = notes.filter((note) =>
-              note.classList.contains("selected")
-            )[0];
-            let noteIndex = notes.findIndex((note) =>
-              note.classList.contains("selected")
-            );
-            notes.splice(noteIndex, 1);
-            displayNotes.removeChild(deleteNote);
-            let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
-            myarray.splice(noteIndex, 1);
-            localStorage.setItem("mynotesapp", JSON.stringify(myarray));
-            let firstNote = displayNotes.firstElementChild;
-            if (firstNote) {
-              firstNote.classList.add("selected");
-            } else {
-              content.innerHTML = `<h1>Create a new note</h1>`;
-            }
-            location.reload()
-          }
-        }
       });
     });
   });
@@ -223,8 +192,11 @@ function saveNote(allNotes) {
   localStorage.setItem("mynotesapp", notesJSON);
 }
 
-function noteOnLoad(mytitle = "Title", mybody = "This is the body", dateString) {
-  
+function noteOnLoad(
+  mytitle = "Title",
+  mybody = "This is the body",
+  dateString
+) {
   let creationDate = new Date(`${dateString}`);
   let year = creationDate.getFullYear();
   let date = creationDate.getDate();
@@ -271,5 +243,34 @@ function noteOnLoad(mytitle = "Title", mybody = "This is the body", dateString) 
 }
 
 document.addEventListener("keydown", (e) => {
-  
-})
+  if (e.key == "Delete") {
+    let textActive =
+      document.activeElement === contentTitle ||
+      document.activeElement === contentBody;
+    if (!textActive) {
+      let response = confirm(
+        "Are you sure you want to delete the selected note?"
+      );
+      if (response) {
+        let deleteNote = notes.filter((note) =>
+          note.classList.contains("selected")
+        )[0];
+        let noteIndex = notes.findIndex((note) =>
+          note.classList.contains("selected")
+        );
+        notes.splice(noteIndex, 1);
+        displayNotes.removeChild(deleteNote);
+        let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
+        myarray.splice(noteIndex, 1);
+        localStorage.setItem("mynotesapp", JSON.stringify(myarray));
+        let firstNote = displayNotes.firstElementChild;
+        if (firstNote) {
+          firstNote.classList.add("selected");
+        } else {
+          content.innerHTML = `<h1>Create a new note</h1>`;
+        }
+        location.reload();
+      }
+    }
+  }
+});
