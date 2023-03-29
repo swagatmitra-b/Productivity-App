@@ -8,9 +8,32 @@ let noteMessage = document.querySelector(".content h1");
 let contentTitle = document.getElementById("title");
 let contentBody = document.getElementById("body");
 
-addNote.addEventListener("click", createNote);
+const daysOfWeek = {
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+};
 
-let stuffNote = [];
+const months = {
+  0: "January",
+  1: "February",
+  2: "March",
+  3: "April",
+  4: "May",
+  5: "June",
+  6: "July",
+  7: "August",
+  8: "Sepetember",
+  9: "October",
+  10: "November",
+  11: "December",
+};
+
+addNote.addEventListener("click", createNote);
 
 onload = () => {
   let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
@@ -38,30 +61,6 @@ onload = () => {
 };
 
 function createNote(mytitle = "Title", mybody = "This is the body") {
-  const daysOfWeek = {
-    0: "Sunday",
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday",
-  };
-
-  const months = {
-    0: "January",
-    1: "February",
-    2: "March",
-    3: "April",
-    4: "May",
-    5: "June",
-    6: "July",
-    7: "August",
-    8: "Sepetember",
-    9: "October",
-    10: "November",
-    11: "December",
-  };
 
   let now = new Date();
   let year = now.getFullYear();
@@ -200,31 +199,7 @@ function saveNote(allNotes) {
 }
 
 function noteOnLoad(mytitle = "Title", mybody = "This is the body", dateString) {
-  const daysOfWeek = {
-    0: "Sunday",
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday",
-  };
-
-  const months = {
-    0: "January",
-    1: "February",
-    2: "March",
-    3: "April",
-    4: "May",
-    5: "June",
-    6: "July",
-    7: "August",
-    8: "Sepetember",
-    9: "October",
-    10: "November",
-    11: "December",
-  };
-
+  
   let creationDate = new Date(`${dateString}`);
   let year = creationDate.getFullYear();
   let date = creationDate.getDate();
