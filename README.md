@@ -9,8 +9,7 @@
    ```
      git clone https://github.com/swagatmitra-b/Productivity-App.git
    ```
- 
-
+   
 2. Open the *notes.html* file in your browser. 
 
 3. Click on the *New Note* button to create a note. Select the note you want to save your content to, present in the notes display panel on the left, and hit the *alt* key on your keyboard to save it. 
