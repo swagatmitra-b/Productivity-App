@@ -181,6 +181,31 @@ function noteSelect() {
           saveNote(myarray);
           location.reload();
         }
+        if (e.key == "Delete") {
+          let response = confirm(
+            "Are you sure you want to delete the selected note?"
+          );
+          if (response) {
+            let deleteNote = notes.filter((note) =>
+              note.classList.contains("selected")
+            )[0];
+            let noteIndex = notes.findIndex((note) =>
+              note.classList.contains("selected")
+            );
+            notes.splice(noteIndex, 1);
+            displayNotes.removeChild(deleteNote);
+            let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
+            myarray.splice(noteIndex, 1);
+            localStorage.setItem("mynotesapp", JSON.stringify(myarray));
+            let firstNote = displayNotes.firstElementChild;
+            if (firstNote) {
+              firstNote.classList.add("selected");
+            } else {
+              content.innerHTML = `<h1>Create a new note</h1>`;
+            }
+            location.reload()
+          }
+        }
       });
     });
   });
@@ -246,29 +271,5 @@ function noteOnLoad(mytitle = "Title", mybody = "This is the body", dateString) 
 }
 
 document.addEventListener("keydown", (e) => {
-  if (e.key == "Delete") {
-    let response = confirm(
-      "Are you sure you want to delete the selected note?"
-    );
-    if (response) {
-      let deleteNote = notes.filter((note) =>
-        note.classList.contains("selected")
-      )[0];
-      let noteIndex = notes.findIndex((note) =>
-        note.classList.contains("selected")
-      );
-      notes.splice(noteIndex, 1);
-      displayNotes.removeChild(deleteNote);
-      let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
-      myarray.splice(noteIndex, 1);
-      localStorage.setItem("mynotesapp", JSON.stringify(myarray));
-      let firstNote = displayNotes.firstElementChild;
-      if (firstNote) {
-        firstNote.classList.add("selected");
-      } else {
-        content.innerHTML = `<h1>Create a new note</h1>`;
-      }
-    }
-    location.reload()
-  }
+  
 })
