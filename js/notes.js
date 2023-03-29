@@ -244,6 +244,8 @@ function noteOnLoad(
 
 document.addEventListener("keydown", (e) => {
   if (e.key == "Delete") {
+    console.log(contentTitle)
+    console.log(contentBody)
     let textActive =
       document.activeElement === contentTitle ||
       document.activeElement === contentBody;
@@ -269,8 +271,8 @@ document.addEventListener("keydown", (e) => {
         } else {
           content.innerHTML = `<h1>Create a new note</h1>`;
         }
-        location.reload();
       }
+      location.reload();
     }
   }
 });
