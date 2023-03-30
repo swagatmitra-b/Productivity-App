@@ -247,8 +247,8 @@ document.addEventListener("keydown", (e) => {
     console.log(contentTitle)
     console.log(contentBody)
     let textActive =
-      document.activeElement === contentTitle ||
-      document.activeElement === contentBody;
+      document.activeElement === document.querySelector("#title") ||
+      document.activeElement === document.querySelector("#body");
     if (!textActive) {
       let response = confirm(
         "Are you sure you want to delete the selected note?"
