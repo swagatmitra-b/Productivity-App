@@ -2,6 +2,7 @@ const addNote = document.getElementById("add-note");
 const displayNotes = document.getElementsByClassName("display-notes")[0];
 let content = document.querySelector(".content");
 let notes = Array.from(document.getElementsByClassName("note"));
+let sidebar = document.querySelector(".sidebar"); 
 
 let noteMessage = document.querySelector(".content h1");
 
@@ -122,6 +123,11 @@ function createNote(mytitle = "Title", mybody = "This is the body") {
   });
 
   saveNote(allNotes);
+
+  if (sidebar.clientHeight < sidebar.scrollHeight) {
+    sidebar.style.width = "310px";
+    addNote.style.transform = "translateX(-2px)"
+  }
 }
 
 function noteSelect() {
