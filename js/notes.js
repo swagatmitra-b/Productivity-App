@@ -246,6 +246,11 @@ function noteOnLoad(
     deselectNote.classList.remove("selected");
     newNote.classList.add("selected");
   }
+  
+  if (sidebar.clientHeight < sidebar.scrollHeight) {
+    sidebar.style.width = "310px";
+    addNote.style.transform = "translateX(-2px)"
+  }
 }
 
 document.addEventListener("keydown", (e) => {
