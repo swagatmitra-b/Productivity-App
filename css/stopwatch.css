@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-
 * {
     margin: 0; 
     border: 0;
@@ -31,8 +30,7 @@ a#stopwatch {
     border-bottom: 1.9px solid;
     color: rgb(212, 23, 98);
 }
-/* 
-real code */
+
 .timer { 
     margin-top: 90px;
     display: flex;
@@ -48,7 +46,6 @@ real code */
     font-family: 'Poppins', sans-serif;
     font-size: 3.4rem;
 }
-
 
 button { 
     position: relative;
