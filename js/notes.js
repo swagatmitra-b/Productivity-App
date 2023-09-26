@@ -54,7 +54,10 @@ onload = () => {
     if (lastNote) {
       if (lastNote.classList.contains("selected")) {
         lastNote.classList.remove("selected");
-        displayNotes.firstElementChild.classList.add("selected");
+        let firstElement = displayNotes.firstElementChild;
+        firstElement.classList.add("selected");
+        contentTitle.innerText = firstElement.querySelector('h3').textContent;
+        contentBody.innerText = firstElement.querySelector('p').textContent;
       }
     }
     noteSelect();
