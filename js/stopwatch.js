@@ -3,12 +3,12 @@ const secs = document.getElementById("seconds");
 const milli = document.getElementById("milliseconds");
 const start = document.getElementById("start");
 
-let now;
+let now=new Date(),newNow=new Date();
 
 function timer() {
   const stop = document.getElementById("stop");
   const reset = document.getElementById("reset");
-  let newNow = new Date();
+  newNow++;
   let inSeconds = (newNow - now) / 1000;
   let minutes = Math.floor(inSeconds / 60) % 60;
   let seconds = Math.floor(inSeconds) % 60;
@@ -51,7 +51,6 @@ function timer() {
 }
 
 start.addEventListener("click", () => {
-  now = new Date();
   timer();
 });
 
