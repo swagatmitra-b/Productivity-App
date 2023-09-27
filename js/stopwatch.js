@@ -3,22 +3,21 @@ const secs = document.getElementById("seconds");
 const milli = document.getElementById("milliseconds");
 const start = document.getElementById("start");
 
-let now;
+let counter=0;
 
 function timer() {
+  let go = setInterval(timer, 0);
+  counter=counter+1;
   const stop = document.getElementById("stop");
   const reset = document.getElementById("reset");
-  let newNow = new Date();
-  let inSeconds = (newNow - now) / 1000;
-  let minutes = Math.floor(inSeconds / 60) % 60;
-  let seconds = Math.floor(inSeconds) % 60;
-  let milliseconds = String(inSeconds).split(".")[1];
+  let minutes = counter>60000 ? (Math.floor((counter/60000)) % 60) : 0 ;
+  let seconds = counter>1000 ? (Math.floor((counter/1000)) % 60) : 0 ;
+  let milliseconds = counter%1000;
 
   mins.innerText = minutes;
   secs.innerText = seconds;
   milli.innerText = milliseconds;
 
-  let go = setInterval(timer, 0);
 
   stop.addEventListener("click", () => {
     clearInterval(go);
@@ -27,6 +26,7 @@ function timer() {
 
   reset.addEventListener("click", () => {
     clearInterval(go);
+    counter=0;
     mins.innerText = "0";
     secs.innerText = "0";
     milli.innerText = "0";
@@ -47,11 +47,11 @@ function timer() {
 
   start.addEventListener("click", () => {
     stop.style.backgroundColor = "transparent";
+    go = setInterval(timer, 0);
   });
 }
 
 start.addEventListener("click", () => {
-  now = new Date();
   timer();
 });
 
