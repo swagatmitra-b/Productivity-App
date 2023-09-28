@@ -3,7 +3,7 @@ const secs = document.getElementById("seconds");
 const milli = document.getElementById("milliseconds");
 const start = document.getElementById("start");
 
-let now,time1,time2,running=0,difference=0;
+let now,time1,time2,running=0,difference=0,run=1;
 
 function timer() {
   const stop = document.getElementById("stop");
@@ -24,6 +24,7 @@ function timer() {
     clearInterval(go);
     stop.style.backgroundColor = "red";
     running=1;
+    run=1;
     time1=new Date();
   });
 
@@ -32,7 +33,8 @@ function timer() {
     mins.innerText = "0";
     secs.innerText = "0";
     milli.innerText = "0";
-
+    run=1;
+    running=0;
     stop.style.display = "none";
     reset.style.display = "none";
   });
@@ -53,13 +55,19 @@ function timer() {
 }
 
 start.addEventListener("click", () => {
-  if(!running){
+  if(!running && run){
     now=new Date();
+    console.log("hi");
+    difference=0;
+    run=0;
     timer();
   }
-  else{
+  else if(running && run){
     time2=new Date();
     difference=difference+(time2-time1);
+    time1=0;
+    time2=0;
+    run=0;
     timer();
   }
 });
