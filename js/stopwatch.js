@@ -34,6 +34,14 @@ function timer() {
     run=1;
     time1=new Date();
   });
+  
+  stop.addEventListener("mouseenter", () => {
+    stop.style.backgroundColor = "rgba(255, 0, 0, 0.347)";
+  });
+  stop.addEventListener("mouseleave", () => {
+    stop.style.backgroundColor = "transparent";
+  });
+
   stop.addEventListener("mouseenter", () => {
     stop.style.backgroundColor = "rgba(255, 0, 0, 0.347)";
   });
@@ -72,12 +80,10 @@ start.addEventListener("click", () => {
   start.style.backgroundColor = "lime";
   if (!running && run) {
     now = new Date();
-    console.log("hi");
-    difference=0;
-    run=0;
+    difference = 0;
+    run = 0;
     timer();
-  }
-  else if(running && run){
+  } else if(running && run){
     time2=new Date();
     difference=difference+(time2-time1);
     time1=0;
