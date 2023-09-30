@@ -25,12 +25,25 @@ function timer() {
 
   let go = setInterval(timer, 0);
 
+  start.addEventListener("mouseenter",() => {
+    start.style.backgroundColor = "lightgreen";
+  });
+  start.addEventListener("mouseleave",() => {
+    start.style.backgroundColor = "transparent";
+  });
+
   stop.addEventListener("click", () => {
     clearInterval(go);
     stop.style.backgroundColor = "red";
     running = 1;
     run = 1;
     time1 = new Date();
+  });
+  stop.addEventListener("mouseenter", () => {
+    stop.style.backgroundColor = "rgba(255, 0, 0, 0.347)";
+  });
+  stop.addEventListener("mouseleave", () => {
+    stop.style.backgroundColor = "transparent";
   });
 
   reset.addEventListener("click", () => {
@@ -47,6 +60,7 @@ function timer() {
   reset.addEventListener("mouseenter", () => {
     reset.style.backgroundColor = "lightblue";
   });
+  
   reset.addEventListener("mouseleave", () => {
     reset.style.backgroundColor = "transparent";
   });
@@ -60,6 +74,7 @@ function timer() {
 }
 
 start.addEventListener("click", () => {
+  start.style.backgroundColor = "lime";
   if (!running && run) {
     now = new Date();
     console.log("hi");
