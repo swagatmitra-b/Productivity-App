@@ -5,7 +5,7 @@ Hello! It's great to see you interested in helping me fix this little project. T
 
 1. Feel free to take your time and understand the codebase. Before starting out with anything else, please read the README file to gain an overview of the application. The app was built using vanilla JavaScript so even if you're a beginner with little to no experience with frontend frameworks, you should feel right at home!
 
-2. Create a fork of this repository and clone your forked repo on your local machine. You can set the upstream of your remote to my repo. Always remember to create a separate branch for any change you may make in the codebase. You can name your branch as per your will, but it is encouraged to stick to this convention. 
+2. Create a fork of this repository and clone your forked repo on your local machine. You can set the upstream of your remote to my repo. Switch your workspace to the `hacktoberfest` branch from the `main` default branch before you make a new branch to make your changes. Always remember to create a separate branch for any change you may make in the codebase. You can name your branch as per your will, but it is encouraged to stick to this convention. 
     ```bash 
     git branch hack/fix-name
     ```
@@ -15,6 +15,6 @@ Hello! It's great to see you interested in helping me fix this little project. T
 
 4. For maintaining a clean commit history, please try to keep your commit messages as consise as possible. 
 
-4. Please remember to pull from the main branch of your upstream (my repo) before pushing your changes to your branch, considering your branch is based off the main branch which is almost always the case. This is considered good practice since it helps catch merge conflicts early.
+4. Please remember to pull from the `hacktoberfest` branch of your upstream (my repo) before pushing your changes since your branch is based off the `hacktoberfest` branch. This is considered good practice since it helps catch merge conflicts early.
 
 5. I'm looking forward to your active contributions. Good luck and have fun!
