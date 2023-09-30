@@ -133,32 +133,37 @@ function createNote(mytitle = "Title", mybody = "This is the body") {
 function noteSelect() {
   notes.forEach((note) => {
     note.addEventListener("click", (e) => {
+      
+      
       e.preventDefault();
       e.stopImmediatePropagation();
-      let deselectNote = notes.filter((note) =>
-        note.classList.contains("selected")
-      )[0];
+      if(!e.target.parentElement.classList.contains("selected")){
+        console.log("new note selected!");
+        let deselectNote = notes.filter((note) =>
+          note.classList.contains("selected")
+        )[0];
 
-      if (deselectNote) {
-        deselectNote.classList.remove("selected");
-        e.currentTarget.classList.add("selected");
+        if (deselectNote) {
+          deselectNote.classList.remove("selected");
+          e.currentTarget.classList.add("selected");
+        }
+
+        let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
+        let noteIndex = notes.indexOf(note);
+        let noteObject = myarray[noteIndex];
+
+        let refreshedNote = content.cloneNode(true);
+        let fillTitle = refreshedNote.querySelector("#title");
+        let fillBody = refreshedNote.querySelector("#body");
+
+        fillTitle.value = noteObject.title;
+        fillBody.value = noteObject.body;
+
+        fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
+
+        content.replaceWith(refreshedNote);
+        content = refreshedNote;
       }
-
-      let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
-      let noteIndex = notes.indexOf(note);
-      let noteObject = myarray[noteIndex];
-
-      let refreshedNote = content.cloneNode(true);
-      let fillTitle = refreshedNote.querySelector("#title");
-      let fillBody = refreshedNote.querySelector("#body");
-
-      fillTitle.innerText = noteObject.title;
-      fillBody.innerText = noteObject.body;
-
-      fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
-
-      content.replaceWith(refreshedNote);
-      content = refreshedNote;
 
       document.addEventListener("keydown", (e) => {
         if (e.key == "Alt") {
