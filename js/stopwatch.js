@@ -34,6 +34,7 @@ function timer() {
     run=1;
     time1=new Date();
   });
+  
   stop.addEventListener("mouseenter", () => {
     stop.style.backgroundColor = "rgba(255, 0, 0, 0.347)";
   });
