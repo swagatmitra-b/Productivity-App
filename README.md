@@ -6,7 +6,7 @@
 ## How to use it
 
 1. Clone this repository locally by pasting the below command in your terminal and hitting enter/return.
-   ```
+   ```bash
      git clone https://github.com/swagatmitra-b/Productivity-App.git
    ```
 2. Open the *notes.html* file in your browser. 
@@ -16,3 +16,5 @@
 4. To delete a note, select the note by clicking on it in the notes display panel and press the *Del* key on your keyboard. 
 
 5. The saved notes will be stored on your machine locally and you can access them whenever you open your app the next time. 
+
+#### If you're here for Hacktoberfest, please read the CONTRIBUTING.md file for the guidelines. Happy hacking!
