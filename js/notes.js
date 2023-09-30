@@ -155,6 +155,8 @@ function noteSelect() {
       fillTitle.innerText = noteObject.title;
       fillBody.innerText = noteObject.body;
 
+      fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
+
       content.replaceWith(refreshedNote);
       content = refreshedNote;
 
@@ -170,6 +172,7 @@ function noteSelect() {
           let titleText = fillTitle.value.trim();
           let bodyText = fillBody.value.trim();
           title.innerText = titleText;
+          body.innerHTML = bodyText.replace(/\n/g, "\n");
           body.innerText = bodyText;
 
           let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
