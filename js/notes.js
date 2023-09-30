@@ -133,34 +133,38 @@ function createNote(mytitle = "Title", mybody = "This is the body") {
 function noteSelect() {
   notes.forEach((note) => {
     note.addEventListener("click", (e) => {
-      
-      
+      console.log("new note selected!");
       e.preventDefault();
       e.stopImmediatePropagation();
-      if(!e.target.parentElement.classList.contains("selected")){
-        console.log("new note selected!");
-        let deselectNote = notes.filter((note) =>
-          note.classList.contains("selected")
-        )[0];
+      
+      const alreadySelected = e.target.parentElement.classList.contains("selected");
 
-        if (deselectNote) {
-          deselectNote.classList.remove("selected");
-          e.currentTarget.classList.add("selected");
-        }
+      let deselectNote = notes.filter((note) =>
+        note.classList.contains("selected")
+      )[0];
 
-        let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
-        let noteIndex = notes.indexOf(note);
-        let noteObject = myarray[noteIndex];
+      if (deselectNote) {
+        deselectNote.classList.remove("selected");
+        e.currentTarget.classList.add("selected");
+      }
+      
+      
 
-        let refreshedNote = content.cloneNode(true);
-        let fillTitle = refreshedNote.querySelector("#title");
-        let fillBody = refreshedNote.querySelector("#body");
+      let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
+      let noteIndex = notes.indexOf(note);
+      let noteObject = myarray[noteIndex];
 
-        fillTitle.value = noteObject.title;
-        fillBody.value = noteObject.body;
+      let refreshedNote = content.cloneNode(true);
+      let fillTitle = refreshedNote.querySelector("#title");
+      let fillBody = refreshedNote.querySelector("#body");
 
-        fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
+      fillTitle.value = noteObject.title;
+      fillBody.value = noteObject.body;
 
+      fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
+      console.log(alreadySelected);
+      
+      if(!alreadySelected){
         content.replaceWith(refreshedNote);
         content = refreshedNote;
       }
