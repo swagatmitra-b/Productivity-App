@@ -15,6 +15,6 @@ Hello! It's great to see you interested in helping me fix this little project. T
 
 4. For maintaining a clean commit history, please try to keep your commit messages as consise as possible. 
 
-4. Please remember to pull from the `hacktoberfest` branch of your upstream (my repo) before pushing your changes since your branch is based off the `hacktoberfest` branch. This is considered good practice since it helps catch merge conflicts early.
+4. Please remember to pull from the `hacktoberfest` branch of your upstream (my repo) before pushing your changes since your branch will be based off the `hacktoberfest` branch. This is considered good practice since it helps catch merge conflicts early.
 
 5. I'm looking forward to your active contributions. Good luck and have fun!
