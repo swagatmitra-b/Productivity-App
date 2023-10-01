@@ -2,7 +2,7 @@ const addNote = document.getElementById("add-note");
 const displayNotes = document.getElementsByClassName("display-notes")[0];
 let content = document.querySelector(".content");
 let notes = Array.from(document.getElementsByClassName("note"));
-let sidebar = document.querySelector(".sidebar"); 
+let sidebar = document.querySelector(".sidebar");
 
 let noteMessage = document.querySelector(".content h1");
 
@@ -54,7 +54,10 @@ onload = () => {
     if (lastNote) {
       if (lastNote.classList.contains("selected")) {
         lastNote.classList.remove("selected");
-        displayNotes.firstElementChild.classList.add("selected");
+        let firstElement = displayNotes.firstElementChild;
+        firstElement.classList.add("selected");
+        contentTitle.innerText = firstElement.querySelector("h3").textContent;
+        contentBody.innerText = firstElement.querySelector("p").textContent;
       }
     }
     noteSelect();
@@ -126,7 +129,7 @@ function createNote(mytitle = "Title", mybody = "This is the body") {
 
   if (sidebar.clientHeight < sidebar.scrollHeight) {
     sidebar.style.width = "310px";
-    addNote.style.transform = "translateX(-2px)"
+    addNote.style.transform = "translateX(-2px)";
   }
 }
 
@@ -135,7 +138,8 @@ function noteSelect() {
     note.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopImmediatePropagation();
-      const alreadySelected = e.target.parentElement.classList.contains("selected");
+      const alreadySelected =
+        e.target.parentElement.classList.contains("selected");
       let deselectNote = notes.filter((note) =>
         note.classList.contains("selected")
       )[0];
@@ -158,7 +162,7 @@ function noteSelect() {
 
       fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
 
-      if(!alreadySelected){
+      if (!alreadySelected) {
         content.replaceWith(refreshedNote);
         content = refreshedNote;
       }
@@ -252,17 +256,17 @@ function noteOnLoad(
     deselectNote.classList.remove("selected");
     newNote.classList.add("selected");
   }
-  
+
   if (sidebar.clientHeight < sidebar.scrollHeight) {
     sidebar.style.width = "310px";
-    addNote.style.transform = "translateX(-2px)"
+    addNote.style.transform = "translateX(-2px)";
   }
 }
 
 document.addEventListener("keydown", (e) => {
   if (e.key == "Delete") {
-    console.log(contentTitle)
-    console.log(contentBody)
+    console.log(contentTitle);
+    console.log(contentBody);
     let textActive =
       document.activeElement === document.querySelector("#title") ||
       document.activeElement === document.querySelector("#body");
