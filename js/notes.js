@@ -158,9 +158,6 @@ function noteSelect() {
 
       fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
       
-      content.replaceWith(refreshedNote);
-      content = refreshedNote;
-      
       if(!alreadySelected){
         content.replaceWith(refreshedNote);
         content = refreshedNote;
