@@ -1,97 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 * {
-    margin: 0; 
-    border: 0;
-    box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
 }
 
 .wrapper {
-    max-width: 100vh;
-    margin: 0 auto;
+	max-width: 100vh;
+	margin: 0 auto;
 }
 
 nav .pages {
-    margin: 30px 165px;
-    display: flex;
-    gap: 40px;
+	margin: 30px 165px;
+	display: flex;
+	gap: 40px;
 }
 
 a {
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s ease;
-    color: black;
+	text-decoration: none;
+	font-size: 1.3rem;
+	font-family: "Poppins", sans-serif;
+	transition: transform 0.3s ease;
+	color: black;
 }
 
 a#countdown {
-    border-bottom: 1.9px solid;
-    color: rgb(101, 150, 40);
+	border-bottom: 1.9px solid;
+	color: rgb(101, 150, 40);
 }
 
 .timer {
-    transform: translateX(-40px);
-    margin-top: 80px;
-    display: flex;
-    gap: 80px
+	transform: translateX(-40px);
+	margin-top: 80px;
+	display: flex;
+	gap: 80px;
 }
 
 .box {
-    text-align: center;
+	text-align: center;
 }
 
 .box h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 400;
+	font-family: "Poppins", sans-serif;
+	font-size: 2.5rem;
+	font-weight: 400;
 }
 
-.box span{
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
+.box span {
+	font-family: "Poppins", sans-serif;
+	font-size: 2.5rem;
 }
 
 .input {
-    display: flex;
-    gap: 90px; 
-    margin-top: 80px;
-    text-align: center;
-    margin-left: 190px;
+	display: flex;
+	gap: 90px;
+	margin-top: 80px;
+	text-align: center;
+	margin-left: 190px;
 }
 
 input {
-    padding: 10px 10px;
+	padding: 10px 10px;
 }
 
-label h3{
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+label h3 {
+	font-family: "Poppins", sans-serif;
+	font-size: 1.4rem;
 }
 
 button {
-    position: relative;
-    padding: 10px 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;    
-    border: 2px solid black;
-    border-radius: 8px;
-    background-color: transparent;
-    top: 80px;
-    left: 260px;
+	position: relative;
+	padding: 10px 30px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	border: 2px solid black;
+	border-radius: 8px;
+	background-color: transparent;
+	top: 80px;
+	left: 260px;
 }
 
 button:hover {
-    cursor: pointer;
-    background-color: rgb(161, 216, 79);
-    transition: 0.2s ease-in;
+	cursor: pointer;
+	background-color: rgb(161, 216, 79);
+	transition: 0.2s ease-in;
 }
 
 button#stop {
-    transform: translate(-140px, 70px);
-    display: none; 
+	transform: translate(-140px, 70px);
+	display: none;
 }
 
+.color-mode {
+	position: absolute;
+	top: 15px;
+	right: 15px;
 
+	width: 62px;
+	padding: 16px 0 12px 0;
+}
 
+.bg-dark-mode {
+	background-color: #2b2b2b;
+}
+
+.dark-mode,
+.dark-mode a,
+.dark-mode textarea,
+.dark-mode button {
+	color: #fff !important;
+}

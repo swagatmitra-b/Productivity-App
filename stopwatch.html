@@ -1,39 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stopwatch</title>
-    <link rel="stylesheet" href="./css/stopwatch.css" />
-    <link type="image/png" sizes="16x16" rel="icon" href="./favicon/icons8-hourglass-16.png">
-    <script src="./js/stopwatch.js" defer></script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <nav>
-        <div class="pages">
-          <a href="./notes.html" id="notes">Notes</a>
-          <a href="./countdown.html" id="countdown">Countdown</a>
-          <a href="./stopwatch.html" id="stopwatch">Stopwatch</a>
-        </div>
-      </nav>
-      <div class="timer">
-        <div class="mins">
-          <span id="minutes">0</span>
-        </div>
-        <div class="secs">
-          <span id="seconds">0</span>
-        </div>
-        <div class="milli">
-          <span id="milliseconds">0</span>
-        </div>
-      </div>
-      <div class="buttons">
-        <button id="start">Start</button>
-        <button id="stop">Stop</button>
-        <button id="reset">Reset</button>
-      </div>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Stopwatch</title>
+		<link
+			rel="stylesheet"
+			href="./css/stopwatch.css" />
+		<link
+			type="image/png"
+			sizes="16x16"
+			rel="icon"
+			href="./favicon/icons8-hourglass-16.png" />
+
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+		<script
+			src="./js/stopwatch.js"
+			defer></script>
+
+		<script
+			src="./js/darkModeSwitcher.js"
+			defer></script>
+	</head>
+	<body class="dark-mode bg-dark-mode">
+		<div class="wrapper">
+			<button
+				data-theme="light"
+				class="color-mode">
+				<i class="ph ph-moon"></i>
+			</button>
+			<nav>
+				<div class="pages">
+					<a
+						href="./notes.html"
+						id="notes"
+						>Notes</a
+					>
+					<a
+						href="./countdown.html"
+						id="countdown"
+						>Countdown</a
+					>
+					<a
+						href="./stopwatch.html"
+						id="stopwatch"
+						>Stopwatch</a
+					>
+				</div>
+			</nav>
+			<div class="timer">
+				<div class="mins">
+					<span id="minutes">0</span>
+				</div>
+				<div class="secs">
+					<span id="seconds">0</span>
+				</div>
+				<div class="milli">
+					<span id="milliseconds">0</span>
+				</div>
+			</div>
+			<div class="buttons">
+				<button id="start">Start</button>
+				<button id="stop">Stop</button>
+				<button id="reset">Reset</button>
+			</div>
+		</div>
+	</body>
 </html>
