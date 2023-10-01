@@ -144,7 +144,7 @@ function noteSelect() {
         deselectNote.classList.remove("selected");
         e.currentTarget.classList.add("selected");
       }
-
+      
       let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
       let noteIndex = notes.indexOf(note);
       let noteObject = myarray[noteIndex];
@@ -157,15 +157,15 @@ function noteSelect() {
       fillBody.value = noteObject.body;
 
       fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
-
+      
       content.replaceWith(refreshedNote);
       content = refreshedNote;
-
+      
       if(!alreadySelected){
         content.replaceWith(refreshedNote);
         content = refreshedNote;
       }
-
+      
       document.addEventListener("keydown", (e) => {
         if (e.key == "Alt") {
           let selectedNote = notes.filter((note) =>
