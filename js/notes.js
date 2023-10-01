@@ -133,12 +133,9 @@ function createNote(mytitle = "Title", mybody = "This is the body") {
 function noteSelect() {
   notes.forEach((note) => {
     note.addEventListener("click", (e) => {
-      console.log("new note selected!");
       e.preventDefault();
       e.stopImmediatePropagation();
-      
       const alreadySelected = e.target.parentElement.classList.contains("selected");
-
       let deselectNote = notes.filter((note) =>
         note.classList.contains("selected")
       )[0];
@@ -148,8 +145,6 @@ function noteSelect() {
         e.currentTarget.classList.add("selected");
       }
       
-      
-
       let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
       let noteIndex = notes.indexOf(note);
       let noteObject = myarray[noteIndex];
@@ -162,13 +157,15 @@ function noteSelect() {
       fillBody.value = noteObject.body;
 
       fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
-      console.log(alreadySelected);
+      
+      content.replaceWith(refreshedNote);
+      content = refreshedNote;
       
       if(!alreadySelected){
         content.replaceWith(refreshedNote);
         content = refreshedNote;
       }
-
+      
       document.addEventListener("keydown", (e) => {
         if (e.key == "Alt") {
           let selectedNote = notes.filter((note) =>
