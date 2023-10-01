@@ -144,7 +144,7 @@ function noteSelect() {
         deselectNote.classList.remove("selected");
         e.currentTarget.classList.add("selected");
       }
-
+      
       let myarray = JSON.parse(localStorage.getItem("mynotesapp"));
       let noteIndex = notes.indexOf(note);
       let noteObject = myarray[noteIndex];
@@ -162,7 +162,6 @@ function noteSelect() {
         content.replaceWith(refreshedNote);
         content = refreshedNote;
       }
-
       document.addEventListener("keydown", (e) => {
         if (e.key == "Alt") {
           let selectedNote = notes.filter((note) =>
