@@ -4,10 +4,29 @@ const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
 
+const datepicker = document.getElementById("date");
+const timepicker = document.getElementById("time");
+
+function checkDateTime(datePicker, timePicker) {
+  const dateValue = datePicker.value;
+  const timeValue = timePicker.value;
+  const dateTimeString = dateValue + " " + timeValue;
+  const selectedDateTime = new Date(dateTimeString);
+  const currentDateTime = new Date();
+  return selectedDateTime < currentDateTime;
+}
+
+
 function buttonClick () {
     countbutton[0].addEventListener("click", (e) => {
+      const isPast = checkDateTime(datepicker, timepicker);
+      if (isPast) {
+        alert("Please select a valid date and time");
+      }
+      else{
+
         const calendar = document.getElementsByTagName("input");
-        const time = document.getElementById("time")
+        const time = document.getElementById("time");
         let date = calendar[0].value.split("-");
         let timeVal = time.value.split(":")
         let target;
@@ -54,6 +73,8 @@ function buttonClick () {
             clearInterval(go)
             buttonClick()
         })
+
+      }
       });
 }
 
