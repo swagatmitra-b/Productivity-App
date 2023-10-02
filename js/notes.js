@@ -61,7 +61,7 @@ onload = () => {
       }
     }
     noteSelect();
-  } else console.log("empty");
+  } 
 };
 
 function createNote(mytitle = "Title", mybody = "This is the body") {
