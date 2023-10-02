@@ -138,8 +138,6 @@ function noteSelect() {
     note.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopImmediatePropagation();
-      const alreadySelected =
-        e.target.parentElement.classList.contains("selected");
       let deselectNote = notes.filter((note) =>
         note.classList.contains("selected")
       )[0];
@@ -162,10 +160,8 @@ function noteSelect() {
 
       fillBody.innerHTML = noteObject.body.replace(/\n/g, "\n");
 
-      if (!alreadySelected) {
-        content.replaceWith(refreshedNote);
-        content = refreshedNote;
-      }
+      content.replaceWith(refreshedNote);
+      content = refreshedNote;
 
       document.addEventListener("keydown", (e) => {
         if (e.key == "Alt") {
