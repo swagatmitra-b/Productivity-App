@@ -163,7 +163,7 @@ function noteSelect() {
       content.replaceWith(refreshedNote);
       content = refreshedNote;
 
-      document.addEventListener("keydown", (e) => {
+      document.addEventListener("keyup", (e) => {
         if (e.key == "Alt") {
           let selectedNote = notes.filter((note) =>
             note.classList.contains("selected")
